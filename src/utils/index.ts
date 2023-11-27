@@ -1,1 +1,2 @@
-export * from './interfaces/index'
+export * from './params/decorator'
+export * from './params/interface'
