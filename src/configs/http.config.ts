@@ -2,6 +2,7 @@ import cluster from 'cluster'
 import express from 'express'
 import os from 'os'
 import { Controller, Middlewares } from '../utils/index'
+import { logger } from './logger.config'
 
 export class HttpConnector {
   private app: express.Express
@@ -50,12 +51,12 @@ export class HttpConnector {
       }
 
       cluster.on('exit', (w, c, s) => {
-        console.log(`Worker ${w.process.pid} died`)
+        logger.info(`Worker ${w.process.pid} died`)
         cluster.fork()
       })
     } else {
       this.app.listen(this.port, () => {
-        console.log(`connect to ${this.env} : ${process.pid} => ${this.port}`)
+        logger.info(`connect to ${this.env} : ${process.pid} => ${this.port}`)
       })
     }
   }
