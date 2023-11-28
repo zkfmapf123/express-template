@@ -1,18 +1,24 @@
 import cluster from 'cluster'
 import express from 'express'
 import os from 'os'
-import { Controller, Middlewares } from '../utils/index'
+import { Configs, Controller, Middlewares } from '../utils/index'
+import { envParams } from './env.config'
 import { logger } from './logger.config'
 
 export class HttpConnector {
   private app: express.Express
   private readonly port: number
-  private readonly env: string
+  private readonly env: envParams
 
-  constructor(app: express.Express, port: number, env: string) {
+  constructor(app: express.Express, port: number, env: envParams) {
     this.app = app
     this.port = port
     this.env = env
+  }
+
+  setConfigs(config: Configs): this {
+    config.init(this.env)
+    return this
   }
 
   // Middleware 설정 (cors, helmet, etc..)
@@ -56,7 +62,7 @@ export class HttpConnector {
       })
     } else {
       this.app.listen(this.port, () => {
-        logger.info(`connect to ${this.env} : ${process.pid} => ${this.port}`)
+        logger.info(`connect to ${process.env.NODE_ENV} : ${process.pid} => ${this.port}`)
       })
     }
   }

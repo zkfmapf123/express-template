@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  node-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - ./logs:/usr/src/app/logs
+    ports:
+      - '3000:3000'
+    networks:
+      - node-network
+    environment:
+      - PORT=3000
+      - DB_PORT=3306
+      - DB_HOST=mysql-db
+      - DB_DATABASE=test_db
+      - DB_PASSWORD=1234
+    depends_on:
+      - mysql-db
+
+  mysql-db:
+    image: mysql:latest
+    restart: always
+    ports:
+      - '3306:3306'
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+      - MYSQL_DATABASE=test_db
+    networks:
+      - node-network
+
+networks:
+  node-network:
+    driver: bridge

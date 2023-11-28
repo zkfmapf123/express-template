@@ -1,7 +1,11 @@
 import dotenv from 'dotenv'
 
-interface envParams {
+export interface envParams {
   PORT: number
+  DB_PORT: number
+  DB_HOST: string
+  DB_DATABASE: string
+  DB_PASSWORD: string
 }
 
 dotenv.config({
@@ -12,6 +16,10 @@ class EnvConfig {
   getEnv(): envParams {
     return {
       PORT: Number(process.env.PORT) || 3000,
+      DB_PORT: Number(process.env.DB_PORT),
+      DB_HOST: process.env.DB_HOST,
+      DB_DATABASE: process.env.DB_DATABASE,
+      DB_PASSWORD: process.env.DB_PASSWORD,
     }
   }
 }

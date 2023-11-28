@@ -12,3 +12,7 @@
             |- ...services      ## Domain Services
         |- utils                ## Utils
 ```
+
+## Reference
+
+- <a href="https://sequelize.org/docs/v6/core-concepts/raw-queries/"> Sequalize Raw Queries</a>

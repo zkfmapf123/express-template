@@ -19,4 +19,4 @@ COPY --from=builder /usr/src/app/package*.json ./
 
 RUN npm install --omit=dev
 
-CMD ["node dist/index.js"]
+CMD ["node", "dist/index.js"]
