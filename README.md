@@ -1,5 +1,14 @@
 # node-boilerplate v2
 
+## Tech
+
+- pnpm
+- rollup (bundler)
+- express + typescript
+- Joi 
+- Sequalize (DB Connect)
+- docker + docker-compose
+
 ## Folder Architecture
 
 ```sh
