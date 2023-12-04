@@ -4,7 +4,11 @@
   "type": "module",
   "description": "",
   "main": "dist/index.js",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
+    "alias": "sh alias.sh",
     "clean": "rm -rf dist && rm -rf logs",
     "build": "rollup -c",
     "mysql:up": "docker run -d --name mysql -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=test_db -p 3306:3306 mysql:latest",
@@ -17,11 +21,11 @@
     "@rollup/plugin-typescript": "^11.1.5",
     "@types/express": "^4.17.21",
     "@types/morgan": "^1.9.9",
+    "@types/winston": "^2.4.4",
     "nodemon": "^3.0.1",
     "rollup": "^4.6.0",
     "rollup-plugin-dts": "^6.1.0",
-    "tslib": "^2.6.2",
-    "@types/winston": "^2.4.4",
+    "tslib": "^2.6.2"
   },
   "dependencies": {
     "cross-env": "^7.0.3",
