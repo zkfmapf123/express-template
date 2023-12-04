@@ -4,6 +4,10 @@
 
 ```sh
     sh alias.sh
+
+    npm install       -> pnpm install
+    npm install [lib] -> pnpm add [lib]
+    npm run build     -> pnpm run build
 ```
 
 ## Tech
