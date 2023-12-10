@@ -1,5 +1,7 @@
 import { Request, Response, Router } from 'express'
 import { apiDocument } from '../../decorators/document.decorator'
+import { OptionResponseReturn } from '../../lib/core-fp/fp'
+import { passed } from '../../lib/core-fp/option'
 import { schemaMiddleware } from '../../middlewares/schema.middleware'
 import { Controller } from '../../utils'
 import { testSchema } from './schema'
@@ -24,7 +26,13 @@ class HealthCheckContrller implements Controller {
     description: 'health check를 하는 함수입니다.',
   })
   private handleHealthCheck(req: Request, res: Response) {
-    return res.status(200).send('OK')
+    const healthCheck = passed<string>('success')
+    return OptionResponseReturn(
+      healthCheck,
+      res,
+      (res) => res.status(200).json(healthCheck),
+      (res) => res.status(500).json(healthCheck)
+    )
   }
 
   @apiDocument({
@@ -33,7 +41,13 @@ class HealthCheckContrller implements Controller {
     description: 'test 하는 함수입니다.',
   })
   private testBodyData(req: Request, res: Response) {
-    return res.status(200).json('ok')
+    const test = passed<string>('test')
+    return OptionResponseReturn(
+      test,
+      res,
+      (res) => res.status(200).json(test),
+      (res) => res.status(500).json(test)
+    )
   }
 }
 
