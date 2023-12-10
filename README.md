@@ -32,6 +32,11 @@
         |- utils                ## Utils
 ```
 
+```sh
+    |- lib
+        |- core-fp              ## 함수형 프로그래밍 lib
+```
+
 ## Reference
 
 - <a href="https://sequelize.org/docs/v6/core-concepts/raw-queries/"> Sequalize Raw Queries</a>
