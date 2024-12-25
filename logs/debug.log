@@ -1,8 +1,0 @@
-{"level":"debug","message":["method : ","GET","url ","/health","desc : ","health check를 하는 함수입니다."],"timestamp":"2024-12-25 11:46:03"}
-{"level":"debug","message":["method : ","POST","url ","/test","desc : ","test 하는 함수입니다."],"timestamp":"2024-12-25 11:46:03"}
-{"level":"debug","message":["method : ","GET","url ","/coworkers","desc : ","get cowerkers list"],"timestamp":"2024-12-25 11:46:03"}
-{"level":"debug","message":["method : ","PUT","url ","/coworkers","desc : ","update coworker user"],"timestamp":"2024-12-25 11:46:03"}
-{"level":"debug","message":["method : ","POST","url ","/coworkers/user","desc : ","get user use id"],"timestamp":"2024-12-25 11:46:03"}
-{"level":"debug","message":["method : ","DELETE","url ","/coworkers","desc : ","delete user use id"],"timestamp":"2024-12-25 11:46:03"}
-{"level":"info","message":["connect to dev : 46246 => 3000"],"timestamp":"2024-12-25 11:46:03"}
-{"level":"info","message":["DB Connection has been established successfully"],"timestamp":"2024-12-25 11:46:03"}
